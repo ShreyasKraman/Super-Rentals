@@ -1,0 +1,22 @@
+<h2>{{title}}</h2>
+
+{{#each hotels as |hotel|}}
+	<article class="listing">
+		{{!-- <a class="image {{if isWide "wide"}}"> --}}
+		<a {{action 'toggleImageSize'}} class="image {{if isWide "wide"}}">	
+			<img src="{{hotel.image}}" alt="">
+			<small>View Larger</small>
+		</a>	
+		<h3>{{hotel.title}}</h3>
+		<div class="detail type">
+			{{!-- <span>Type </span>{{hotel.category}} --}}
+			<span> Type: </span> {{rental-property-type hotel.category}} - {{hotel.category}}
+		</div>	
+		<div class="detail location">
+			<span>Location: </span>{{hotel.city}}
+		</div>
+		<div class="detail bedrooms">
+			<span>Number of floors: </span>{{hotel.floors}}
+		</div>
+	</article>
+{{/each}}
